@@ -97,7 +97,7 @@
             📋 - Invite
           </button>
           <button
-            class="btn btn-lg rounded-box animate__animated animate__bounceIn"
+            class="btn btn-lg rounded-box"
             @click="startGame"
             v-if="state.players.size > 2"
           >
