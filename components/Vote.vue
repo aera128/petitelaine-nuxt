@@ -24,7 +24,7 @@
     >
       <div class="card-body bg-base-100 grid grid-cols-2">
         <div class="font-black text-2xl">
-          Your word : {{ state.players.get(room.sessionId).word }}
+          {{ $t('yourWord') }} : {{ state.players.get(room.sessionId).word }}
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
       "
     >
       <div class="card-body bg-base-100">
-        <div class="font-black text-3xl text-center">It's time to vote !!!</div>
+        <div class="font-black text-3xl text-center">{{ $t('timeVote') }} </div>
       </div>
     </div>
     <div
@@ -126,7 +126,7 @@
                   @click="vote(key)"
                   v-if="!voted"
                 >
-                  Vote
+                  {{ $t('vote') }} 
                 </button>
               </div>
               <div

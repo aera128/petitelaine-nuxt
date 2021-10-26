@@ -5,15 +5,15 @@
     >
       <div class="card-body bg-base-100">
         <div class="text-2xl font-black">
-          Players :
+          {{ $t('Players') }} :
           <span v-if="state.players.size > 2">{{ state.players.size }}</span
           ><span v-else class="text-red-600">{{ state.players.size }}</span> /
           {{ state.settings.maxPlayers }}
           <span class="flex items-center mt-2 -ml-4">
             <button
-              class="btn btn-ghost btn-xl loading hidden lg:flex"
+              class="btn btn-ghost btn-xl loading"
             ></button>
-            Waiting for more players...
+            {{ $t('waitPlayers') }}
           </span>
         </div>
         <select
@@ -36,7 +36,7 @@
             :key="n"
             class="font-black"
           >
-            {{ n }} players
+            {{ n }} {{ $t('Players') }}
           </option>
         </select>
         <ul class="border border-gray-500 rounded-box py-5 px-2 mt-5">
@@ -94,14 +94,14 @@
           v-if="room.sessionId === state.leader"
         >
           <button class="btn btn-lg rounded-box mr-2" @click="copyToClipboard">
-            📋 - Invite
+            📋 - {{ $t('invite') }}
           </button>
           <button
             class="btn btn-lg rounded-box"
             @click="startGame"
             v-if="state.players.size > 2"
           >
-            ▶️ - Start the game
+            ▶️ - {{ $t('startGame') }}
           </button>
           <button
             class="btn btn-lg rounded-box animate__animated animate__bounceIn"
@@ -110,7 +110,7 @@
             <button
               class="btn btn-ghost btn-xl loading hidden lg:flex"
             ></button>
-            Waiting for more players...
+            {{ $t('waitPlayers') }}
           </button>
         </div>
         <button
@@ -118,7 +118,7 @@
           v-else
           @click="copyToClipboard"
         >
-          📋 - Invite
+          📋 - {{ $t('invite') }}
         </button>
       </div>
     </div>

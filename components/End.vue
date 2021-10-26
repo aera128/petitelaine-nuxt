@@ -12,10 +12,10 @@
               (state.imposter !== room.sessionId && state.winner === 1)
             "
           >
-            You Lose :(
+            {{ $t('loose') }} 
           </span>
           <span class="text-yellow-600" v-if="state.winner === 2">
-            It's a draw !
+            {{ $t('draw') }} 
           </span>
           <span
             class="text-green-600"
@@ -23,7 +23,7 @@
               (state.imposter === room.sessionId && state.winner === 1) ||
               (state.imposter !== room.sessionId && state.winner === 0)
             "
-            >You win :)
+            >{{ $t('win') }} 
           </span>
         </div>
       </div>
@@ -67,15 +67,15 @@
           class="font-black text-3xl"
           v-if="room.sessionId !== state.imposter"
         >
-          The imposter was
+          {{ $t('imposterWas') }} 
           <span class="text-red-600">{{
             state.players.get(state.imposter).username
           }}</span>
           !
         </div>
-        <div v-else class="font-black text-3xl">You were the imposter</div>
+        <div v-else class="font-black text-3xl">{{ $t('youWereImposter') }} </div>
         <div class="font-black text-3xl lg:text-right">
-          Words were {{ state.words[0] }} and {{ state.words[1] }}
+          {{ $t('wordsWere') }} {{ state.words[0] }} {{ $t('and') }}  {{ state.words[1] }}
         </div>
       </div>
     </div>

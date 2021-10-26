@@ -3,10 +3,12 @@
     <div class="text-center hero-content">
       <div class="max-w-md">
         <h1 class="mb-5 text-5xl font-bold animate__animated animate__bounceIn">
-          Choose a username
+          {{ $t('chooseUsername') }}
         </h1>
         <div class="avatar mb-4">
-          <div class="rounded-btn w-48 h-48 animate__animated animate__bounceIn">
+          <div
+            class="rounded-btn w-48 h-48 animate__animated animate__bounceIn"
+          >
             <img
               :src="
                 'https://avatars.dicebear.com/api/bottts/' + avatar + '.svg'
@@ -62,8 +64,8 @@ export default {
   },
   data() {
     return {
-      username: faker.internet.userName(),
-      avatar: faker.datatype.uuid(),
+      username: localStorage.getItem('username') ? localStorage.getItem('username') : faker.internet.userName(),
+      avatar: localStorage.getItem('avatar') ? localStorage.getItem('avatar') : faker.datatype.uuid(),
       submitted: false,
     }
   },

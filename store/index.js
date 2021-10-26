@@ -39,9 +39,11 @@ export const getters = {
 export const mutations = {
 	updateUsername: (state, username) => {
 		state.username = username
+		localStorage.setItem('username', username)
 	},
 	updateAvatar: (state, avatar) => {
 		state.avatar = avatar
+		localStorage.setItem('avatar', avatar)
 	},
 	updateRoom: (state, room) => {
 		state.room = room

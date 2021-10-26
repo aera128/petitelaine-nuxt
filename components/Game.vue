@@ -24,16 +24,16 @@
     >
       <div class="card-body bg-base-100 grid grid-cols-2">
         <div class="font-black text-2xl">
-          Your word : {{ state.players.get(room.sessionId).word }}
+          {{ $t('yourWord') }} : {{ state.players.get(room.sessionId).word }}
         </div>
         <div
           class="font-black text-2xl text-right"
           v-if="state.turns[state.currentTurn] !== room.sessionId"
         >
-          Current turn :
+          {{ $t('currentTurn') }} :
           {{ state.players.get(state.turns[state.currentTurn]).username }}
         </div>
-        <div class="font-black text-2xl text-right" v-else>It's your turn</div>
+        <div class="font-black text-2xl text-right" v-else>{{ $t('yourTurn') }}</div>
       </div>
     </div>
     <div
@@ -53,7 +53,7 @@
         <input
           v-model="word"
           type="text"
-          placeholder="Your word"
+          :placeholder="$t('yourWord')"
           class="
             input input-lg input-bordered
             rounded-box
@@ -76,7 +76,7 @@
           "
           type="submit"
         >
-          Submit
+          {{ $t('submit') }}
         </button>
       </form>
     </div>
@@ -112,7 +112,7 @@
           </span>
         </div>
         <div class="font-black text-2xl w-full my-4 pl-5 text-gray-400" v-else>
-          Waiting for current player...
+          {{ $t('waitingForCurrentPlayer') }}
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@
     >
       <div class="card-body bg-base-100">
         <div class="text-2xl font-black">
-          Players :
+          {{ $t('Players') }} :
           <span v-if="state.players.size > 2">{{ state.players.size }}</span
           ><span v-else class="text-red-600">{{ state.players.size }}</span> /
           {{ state.settings.maxPlayers }}
