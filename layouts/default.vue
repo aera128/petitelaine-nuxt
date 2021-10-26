@@ -33,11 +33,6 @@ export default {
   mounted() {
     let vm = this
     new Konami(async () => {
-      let audio = new Audio()
-      audio.src = 'ko.mp3'
-      audio.play()
-      audio.volume = 0.5
-
       let ko = document.createElement('div')
       ko.setAttribute(
         'class',
@@ -47,12 +42,24 @@ export default {
       img.setAttribute('src', require('@/static/ko.png'))
       img.setAttribute('class', 'max-h-screen max-w-screen')
       ko.appendChild(img)
-      setTimeout(() => {
-        vm.$refs.pageContent.appendChild(ko)
-        setTimeout(() => {
-          ko.remove()
-        }, 2000)
-      }, 750)
+
+      let audio = new Audio()
+      audio.src = 'ko.mp3'
+      audio.addEventListener(
+        'canplaythrough',
+        () => {
+          audio.volume = 0.5
+          audio.play()
+          setTimeout(() => {
+            vm.$refs.pageContent.appendChild(ko)
+            setTimeout(() => {
+              ko.remove()
+            }, 2000)
+          }, 750)
+        },
+        false
+      )
+      audio.load()
     })
   },
   data() {
