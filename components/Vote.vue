@@ -38,7 +38,7 @@
       "
     >
       <div class="card-body bg-base-100">
-        <div class="font-black text-3xl text-center">{{ $t('timeVote') }} </div>
+        <div class="font-black text-3xl text-center">{{ $t('timeVote') }}</div>
       </div>
     </div>
     <div
@@ -51,6 +51,10 @@
       "
     >
       <div class="card-body bg-base-100">
+        <div class="text-2xl font-black">
+          {{ $t('Players') }} :
+          <span>{{ state.players.size }}</span>
+        </div>
         <div class="grid lg:grid-cols-2 gap-5 mt-5">
           <div
             class="card bg-base-300 shadow-inner"
@@ -126,7 +130,7 @@
                   @click="vote(key)"
                   v-if="!voted"
                 >
-                  {{ $t('vote') }} 
+                  {{ $t('vote') }}
                 </button>
               </div>
               <div

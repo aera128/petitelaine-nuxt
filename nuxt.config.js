@@ -62,13 +62,16 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root',  // recommended
+      redirectOn: 'root', // recommended
     },
     vueI18n: {
       fallbackLocale: ['en', 'fr'],
       messages: {
         en: {
+          loading: 'Loading...',
           chooseUsername: 'Choose a username',
+          correctUsername:
+            'The username must contain only letters and numbers and must be at least 3 characters long',
           Players: 'Players',
           waitPlayers: 'Waiting for more players...',
           startGame: 'Start the game',
@@ -89,7 +92,10 @@ export default {
           youWereImposter: 'You were the imposter',
         },
         fr: {
+          loading: 'Chargement...',
           chooseUsername: 'Choisi un pseudo',
+          correctUsername:
+            'Le pseudo ne peut contenir que des lettres et des chiffres et doit avoir au moins 3 caractères',
           Players: 'Joueurs',
           waitPlayers: "En attente d'autres joueurs...",
           startGame: 'Lancer la partie',

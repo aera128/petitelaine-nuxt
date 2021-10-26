@@ -33,7 +33,9 @@
           {{ $t('currentTurn') }} :
           {{ state.players.get(state.turns[state.currentTurn]).username }}
         </div>
-        <div class="font-black text-2xl text-right" v-else>{{ $t('yourTurn') }}</div>
+        <div class="font-black text-2xl text-right" v-else>
+          {{ $t('yourTurn') }}
+        </div>
       </div>
     </div>
     <div
@@ -128,9 +130,7 @@
       <div class="card-body bg-base-100">
         <div class="text-2xl font-black">
           {{ $t('Players') }} :
-          <span v-if="state.players.size > 2">{{ state.players.size }}</span
-          ><span v-else class="text-red-600">{{ state.players.size }}</span> /
-          {{ state.settings.maxPlayers }}
+          <span>{{ state.players.size }}</span>
         </div>
         <div class="grid lg:grid-cols-2 gap-5 mt-5">
           <div

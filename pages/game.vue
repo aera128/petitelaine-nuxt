@@ -5,7 +5,7 @@
       <div class="container mx-auto transition-container duration-300">
         <div v-if="loading" class="text-center font-black text-2xl hero">
           <div class="hero-content">
-            <button class="btn btn-ghost btn-xl loading"></button> Loading...
+            <button class="btn btn-ghost btn-xl loading"></button> {{ $t('loading') }}
           </div>
         </div>
         <div v-else>
@@ -63,7 +63,7 @@
             right-0
             animate__animated animate__bounceIn
           "
-          v-if="!isDrawer && newMessageCount - messageCount > 0"
+          v-if="!isDrawer && notif"
         ></span>
       </label>
     </div>
@@ -96,8 +96,7 @@ export default {
       room: null,
       state: null,
       isDrawer: false,
-      messageCount: 0,
-      newMessageCount: 0,
+      notif: false,
     }
   },
   methods: {
@@ -147,8 +146,7 @@ export default {
       } else {
         this.isDrawer = !this.isDrawer
       }
-
-      this.messageCount = this.newMessageCount
+      this.notif = false
     },
   },
   watch: {
@@ -176,8 +174,44 @@ export default {
         })
       }
     },
-    'state.chat.messages'(value) {
-      this.newMessageCount = value.length
+    'state.chat.messages'(newM, oldM) {
+      try {
+        if (!this.isDrawer && newM.length > oldM.length) {
+          if (!this.$store.getters.isMuted) {
+            let audio = new Audio('/fx/pop1.mp3')
+            audio.volume = 0.2
+            audio.play()
+          }
+          this.notif = true
+        }
+      } catch (e) {}
+    },
+    'state.players'(newP, oldP) {
+      try {
+        if (!this.$store.getters.isMuted) {
+          if (newP.size > oldP.size) {
+            let audio = new Audio('/fx/pop2.mp3')
+            audio.volume = 0.2
+            audio.play()
+          }
+          if (newP.size < oldP.size) {
+            let audio = new Audio('/fx/beep2.mp3')
+            audio.volume = 0.2
+            audio.play()
+          }
+        }
+      } catch (e) {}
+    },
+    'state.state'(newState, oldState) {
+      try {
+        if (newState === 'game' && oldState === 'lobby') {
+          if (!this.$store.getters.isMuted) {
+            let audio = new Audio('/fx/pop3.mp3')
+            audio.volume = 0.2
+            audio.play()
+          }
+        }
+      } catch (e) {}
     },
   },
 }

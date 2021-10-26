@@ -23,6 +23,12 @@
         {{ locale.flag }}
       </option>
     </select>
+    <button
+      class="btn btn-circle absolute bottom-20 left-5 btn-secondary z-50 text-2xl"
+      @click="$store.commit('updateMuted', !$store.getters.isMuted)"
+    >
+      {{ $store.getters.isMuted ? '🔇' : '🔊' }}
+    </button>
     <Nuxt />
   </div>
 </template>
@@ -43,8 +49,7 @@ export default {
       img.setAttribute('class', 'max-h-screen max-w-screen')
       ko.appendChild(img)
 
-      let audio = new Audio()
-      audio.src = '/ko.mp3'
+      let audio = new Audio('/fx/ko.mp3')
       audio.addEventListener(
         'canplaythrough',
         () => {

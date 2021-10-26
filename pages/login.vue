@@ -36,8 +36,7 @@
             v-if="!this.isUsernameValid && submitted"
           >
             <div>
-              The username must contain only letters and numbers and must be at
-              least 3 characters long
+              {{ $t('correctUsername') }}
             </div>
           </div>
           <button
@@ -64,8 +63,12 @@ export default {
   },
   data() {
     return {
-      username: localStorage.getItem('username') ? localStorage.getItem('username') : faker.internet.userName(),
-      avatar: localStorage.getItem('avatar') ? localStorage.getItem('avatar') : faker.datatype.uuid(),
+      username: localStorage.getItem('username')
+        ? localStorage.getItem('username')
+        : faker.internet.userName(),
+      avatar: localStorage.getItem('avatar')
+        ? localStorage.getItem('avatar')
+        : faker.datatype.uuid(),
       submitted: false,
     }
   },
