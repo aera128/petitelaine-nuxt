@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'client',
+    title: 'Petitelaine',
     htmlAttrs: {
       lang: 'en',
       'data-theme': 'garden',
@@ -17,10 +17,10 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
-      {
-        'http-equiv': 'Content-Security-Policy',
-        content: 'upgrade-insecure-requests',
-      },
+      // {
+      //   'http-equiv': 'Content-Security-Policy',
+      //   content: 'upgrade-insecure-requests',
+      // },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },

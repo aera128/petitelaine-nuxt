@@ -122,7 +122,7 @@
         shadow-2xl
         lg:card-side
         animate__animated animate__fadeInDown
-        mt-10
+        my-10
       "
     >
       <div class="card-body bg-base-100">
@@ -233,7 +233,7 @@ export default {
       this.errors = null
       if (submit) {
         if (this.word) {
-          if (this.word.length > 3) {
+          if (this.word.length > 0) {
             this.room.send('write', { word: this.word, submit: submit })
             this.word = null
           }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="card shadow-2xl lg:card-side animate__animated animate__fadeInDown"
+      class="card shadow-2xl lg:card-side my-10 animate__animated animate__fadeInDown"
     >
       <div class="card-body bg-base-100">
         <div class="text-2xl font-black">
