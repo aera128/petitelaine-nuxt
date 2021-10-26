@@ -44,7 +44,7 @@ export default {
       ko.appendChild(img)
 
       let audio = new Audio()
-      audio.src = 'ko.mp3'
+      audio.src = '/ko.mp3'
       audio.addEventListener(
         'canplaythrough',
         () => {
