@@ -12,10 +12,10 @@
               (state.imposter !== room.sessionId && state.winner === 1)
             "
           >
-            {{ $t('loose') }} 
+            {{ $t('loose') }}
           </span>
           <span class="text-yellow-600" v-if="state.winner === 2">
-            {{ $t('draw') }} 
+            {{ $t('draw') }}
           </span>
           <span
             class="text-green-600"
@@ -23,7 +23,7 @@
               (state.imposter === room.sessionId && state.winner === 1) ||
               (state.imposter !== room.sessionId && state.winner === 0)
             "
-            >{{ $t('win') }} 
+            >{{ $t('win') }}
           </span>
         </div>
       </div>
@@ -67,15 +67,18 @@
           class="font-black text-3xl"
           v-if="room.sessionId !== state.imposter"
         >
-          {{ $t('imposterWas') }} 
+          {{ $t('imposterWas') }}
           <span class="text-red-600">{{
             state.players.get(state.imposter).username
           }}</span>
           !
         </div>
-        <div v-else class="font-black text-3xl">{{ $t('youWereImposter') }} </div>
+        <div v-else class="font-black text-3xl">
+          {{ $t('youWereImposter') }}
+        </div>
         <div class="font-black text-3xl lg:text-right">
-          {{ $t('wordsWere') }} {{ state.words[0] }} {{ $t('and') }}  {{ state.words[1] }}
+          {{ $t('wordsWere') }} {{ state.words[0] }} {{ $t('and') }}
+          {{ state.words[1] }}
         </div>
       </div>
     </div>
@@ -104,11 +107,7 @@
             >
               <div class="w-24 h-24 filter drop-shadow">
                 <img
-                  :src="
-                    'https://avatars.dicebear.com/api/bottts/' +
-                    player[1].avatar +
-                    '.svg'
-                  "
+                  :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${player[1].avatar}`"
                 />
               </div>
               <div
@@ -134,11 +133,7 @@
             >
               <div class="w-24 h-24 filter drop-shadow">
                 <img
-                  :src="
-                    'https://avatars.dicebear.com/api/bottts/' +
-                    player[1].avatar +
-                    '.svg'
-                  "
+                  :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${player[1].avatar}`"
                 />
               </div>
               <div
@@ -183,11 +178,9 @@
                   >
                     <div class="rounded-btn w-24 h-24">
                       <img
-                        :src="
-                          'https://avatars.dicebear.com/api/bottts/' +
-                          state.players.get(key).avatar +
-                          '.svg'
-                        "
+                        :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${
+                          state.players.get(key).avatar
+                        }`"
                       />
                     </div>
                   </div>

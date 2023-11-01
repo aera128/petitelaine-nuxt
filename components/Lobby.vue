@@ -1,7 +1,13 @@
 <template>
   <div>
     <div
-      class="card shadow-2xl lg:card-side my-10 animate__animated animate__fadeInDown"
+      class="
+        card
+        shadow-2xl
+        lg:card-side
+        my-10
+        animate__animated animate__fadeInDown
+      "
     >
       <div class="card-body bg-base-100">
         <div class="text-2xl font-black">
@@ -10,9 +16,7 @@
           ><span v-else class="text-red-600">{{ state.players.size }}</span> /
           {{ state.settings.maxPlayers }}
           <span class="flex items-center mt-2 -ml-4">
-            <button
-              class="btn btn-ghost btn-xl loading"
-            ></button>
+            <button class="btn btn-ghost btn-xl loading"></button>
             {{ $t('waitPlayers') }}
           </span>
         </div>
@@ -49,11 +53,9 @@
               <div class="avatar mr-2 mb-2 animate__animated animate__bounceIn">
                 <div class="rounded-btn w-24 h-24">
                   <img
-                    :src="
-                      'https://avatars.dicebear.com/api/bottts/' +
-                      state.players.get(key).avatar +
-                      '.svg'
-                    "
+                    :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${
+                      state.players.get(key).avatar
+                    }`"
                   />
                 </div>
               </div>

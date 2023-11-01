@@ -151,11 +151,9 @@
                   >
                     <div class="rounded-btn w-24 h-24">
                       <img
-                        :src="
-                          'https://avatars.dicebear.com/api/bottts/' +
-                          state.players.get(key).avatar +
-                          '.svg'
-                        "
+                        :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${
+                          state.players.get(key).avatar
+                        }`"
                       />
                     </div>
                   </div>

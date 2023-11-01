@@ -10,7 +10,7 @@
       bg-gray-100
       md:max-w-2xl
       sm:max-w-xl
-      xs:max-w-lg 
+      xs:max-w-lg
       max-w-md
       w-full
     "
@@ -41,11 +41,7 @@
                 <div class="avatar">
                   <div class="rounded-btn w-16 h-16">
                     <img
-                      :src="
-                        'https://avatars.dicebear.com/api/bottts/' +
-                        message.avatar +
-                        '.svg'
-                      "
+                      :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${message.avatar}`"
                     />
                   </div>
                 </div>

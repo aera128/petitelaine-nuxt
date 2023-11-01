@@ -3,7 +3,7 @@ import * as Colyseus from 'colyseus.js'
 export const strict = false
 
 export const state = () => ({
-  client: new Colyseus.Client('ws://petitelaine.onrender.com'),
+  client: new Colyseus.Client('ws://petitelaine.sk4ur.com'),
   username: '',
   avatar: '',
   code: null,

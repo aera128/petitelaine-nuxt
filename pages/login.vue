@@ -10,9 +10,7 @@
             class="rounded-btn w-48 h-48 animate__animated animate__bounceIn"
           >
             <img
-              :src="
-                'https://avatars.dicebear.com/api/bottts/' + avatar + '.svg'
-              "
+              :src="`https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${avatar}`"
             />
           </div>
           <button
